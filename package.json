@@ -12,10 +12,6 @@
   "bin": {
     "doximus": "./bin/server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
   "scripts": {
     "test": "grunt test"
   },
