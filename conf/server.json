@@ -10,11 +10,11 @@
     "file": {
       "enabled": true,
       "level": "debug",
-      "path": null
+      "path": null // will default to ../log/log.log
     },
     "syslog": {
-      "enabled": true,
-      "level": "info",
+      "enabled": false,
+      "level": null,
       "type": null,
       "facility": null,
       "host": null,
