@@ -6,8 +6,8 @@
   "license": "MIT",
   "author": "David King <davidgwking@gmail.com>",
   "repository" : {
-    "type" : "",
-    "url" : ""
+    "type" : "git",
+    "url" : "https://github.com/davidgwking/restify-skeleton.git"
   },
   "bin": {
     "doximus": "./bin/server.js"
