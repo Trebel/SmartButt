@@ -1,0 +1,24 @@
+{
+  "name": "restify skeleton server",
+  "port": 9232,
+  "allowedClockSkewSeconds": 1,
+  "log": {
+    "console": {
+      "enabled": true,
+      "level": "debug"
+    },
+    "file": {
+      "enabled": true,
+      "level": "debug",
+      "path": null
+    },
+    "syslog": {
+      "enabled": true,
+      "level": "info",
+      "type": null,
+      "facility": null,
+      "host": null,
+      "port": null
+    }
+  }
+}

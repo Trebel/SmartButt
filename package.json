@@ -1,0 +1,37 @@
+{
+  "name": "restify-skeleton",
+  "version": "0.0.1",
+  "description": "a skeleton project for usage with restify server",
+  "keywords": [],
+  "license": "MIT",
+  "author": "David King <davidgwking@gmail.com>",
+  "repository" : {
+    "type" : "",
+    "url" : ""
+  },
+  "bin": {
+    "doximus": "./bin/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "restify": "~2",
+    "bunyan": "~0",
+    "bunyan-syslog": "~0"
+  },
+  "devDependencies": {
+    "grunt": "~0",
+    "grunt-contrib-jshint": "~0",
+    "grunt-mocha-test": "~0",
+    "grunt-nodemon": "~0",
+    "grunt-bunyan": "~0",
+    "mocha": "~1",
+    "chai": "~1",
+    "jshint": "~2"
+  }
+}
