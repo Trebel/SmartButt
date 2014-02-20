@@ -9,9 +9,6 @@
     "type" : "git",
     "url" : "https://github.com/davidgwking/restify-skeleton.git"
   },
-  "bin": {
-    "doximus": "./bin/server.js"
-  },
   "scripts": {
     "test": "grunt test"
   },
