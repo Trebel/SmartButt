@@ -1,6 +1,6 @@
-# Restify Skeleton
+# SmartButt API
 
-A minimalist skeleton for bring up a restify server in minimal time.
+A simple API implementation which uses sensor data stored in AT&T's m2x.
 
 ## Usage
 Use `npm install` to install dependencies, and `npm install -g grunt-cli` to install grunt-cli globally.

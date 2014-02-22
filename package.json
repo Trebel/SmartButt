@@ -1,13 +1,14 @@
 {
-  "name": "restify-skeleton",
+  "name": "smartbuttapi",
   "version": "0.0.1",
-  "description": "a skeleton project for usage with restify server",
+  "description": "a bathroom status api",
   "keywords": [],
   "license": "MIT",
   "author": "David King <davidgwking@gmail.com>",
+  "contributors": [],
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/davidgwking/restify-skeleton.git"
+    "url" : "https://github.com/Trebel/SmartButt-API"
   },
   "scripts": {
     "test": "grunt test"
