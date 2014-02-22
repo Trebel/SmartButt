@@ -1,5 +1,5 @@
 {
-  "name": "restify skeleton server",
+  "name": "SmartButt API",
   "port": 9000,
   "allowedClockSkewSeconds": 1,
   "log": {
