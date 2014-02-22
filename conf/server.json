@@ -1,6 +1,6 @@
 {
   "name": "restify skeleton server",
-  "port": 9232,
+  "port": 9000,
   "allowedClockSkewSeconds": 1,
   "log": {
     "console": {
@@ -8,9 +8,9 @@
       "level": "debug"
     },
     "file": {
-      "enabled": true,
+      "enabled": false,
       "level": "debug",
-      "path": null // will default to ../log/log.log
+      "path": null
     },
     "syslog": {
       "enabled": false,
@@ -20,5 +20,6 @@
       "host": null,
       "port": null
     }
-  }
+  },
+  "m2xMasterKey": "24517e1ca8732a58851b657d2c1cf18e"
 }
