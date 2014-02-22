@@ -27,4 +27,11 @@ angular.module('app', [])
           $scope.error = error;
       });
     }, 5000);
+})
+
+.filter('capitalize', function() {
+    return function(input, scope) {
+        if (input!=null)
+            return input.substring(0,1).toUpperCase()+input.substring(1);
+    }
 });

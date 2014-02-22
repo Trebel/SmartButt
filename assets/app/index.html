@@ -27,6 +27,10 @@
   <div class="content" ng-controller="controller">
     <div class="col-md-4 panel" ng-class="{true:'panel-danger', false:'panel-success'}[loo.occupied]" ng-repeat="loo in loos">
       <div class="panel-heading">F:{{ loo.floor }} | B:{{ loo.bathroom }} | S:{{ loo.stall }}</div>
-      <div class="panel-body">Occupancy Chance: {{ loo.occupyChance | number: 0 }}%</div>
+      <div class="panel-body">
+      Occupancy Chance: {{ loo.occupyChance | number: 0 }}%
+      <div ng-repeat="tag in loo.tags">
+      {{ tag | capitalize }}
+      </div>
   </div>
 </body>
