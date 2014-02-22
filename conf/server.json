@@ -1,6 +1,6 @@
 {
   "name": "SmartButt API",
-  "port": 9000,
+  "port": 5000,
   "allowedClockSkewSeconds": 1,
   "log": {
     "console": {
