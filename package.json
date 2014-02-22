@@ -4,6 +4,9 @@
   "description": "a bathroom status api",
   "keywords": [],
   "license": "MIT",
+  "engines": {
+    "node": "0.10.25"
+  },
   "author": "David King <davidgwking@gmail.com>",
   "contributors": [],
   "repository" : {
