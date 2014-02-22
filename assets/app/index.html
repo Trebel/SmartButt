@@ -2,35 +2,51 @@
 <meta charset="utf-8">
 <title>Bathroom, NOW!</title>
 <meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="styles/main.css">
 <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
 <script src="scripts/app.js"></script>
 
 <body class="container" ng-app="app">
   <div class="navbar navbar-default navbar-static-top">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">SmartButt</a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Near</a></li>
-        <li><a href="#">Best</a></li>
-        <li><a href="#">Pref</a></li>
-      </ul>
-    </div>
-  </div>
+      <div class="navbar-header">
+          <a class="navbar-brand" href="#">SmartButt</a>
 
-  <div class="content" ng-controller="controller">
-    <div class="col-md-4 panel" ng-class="{true:'panel-danger', false:'panel-success'}[loo.occupied]" ng-repeat="loo in loos">
-      <div class="panel-heading">F:{{ loo.floor }} | B:{{ loo.bathroom }} | S:{{ loo.stall }}</div>
-      <div class="panel-body">
-      Occupancy Chance: {{ loo.occupyChance | number: 0 }}%
-      <div ng-repeat="tag in loo.tags">
-      {{ tag | capitalize }}
       </div>
+
   </div>
+  <div>
+      <div class="panel-group" id="accordion">
+          <div class="panel panel-info">
+              <div class="panel-heading">
+                  <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Bathroom Preferences</a>
+                  </h3>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                      <p>
+
+                          <button type="button" class="btn btn-lg btn-default" ng-click="toggle = !toggle" ng-class="{'btn-primary': toggle, 'btn-default': !toggle}">Nearest
+                          </button>
+                          <button type="button" class="btn btn-lg btn-default" ng-click="toggle1 = !toggle1" ng-class="{'btn-primary': toggle1, 'btn-default': !toggle1}">Availability</button>
+                          <button type="button" class="btn btn-lg btn-primary" ng-click="toggle2 = !toggle2" ng-class="{'btn-default': toggle2, 'btn-primary': !toggle2}">Cleanest</button>
+                          <button type="button" class="btn btn-lg btn-primary" ng-click="toggle3 = !toggle3" ng-class="{'btn-default': toggle3, 'btn-primary': !toggle3}">Handicap stall</button>
+                          <button type="button" class="btn btn-lg btn-primary" ng-click="toggle4 = !toggle4" ng-class="{'btn-default': toggle4, 'btn-primary': !toggle4}">Private bathroom</button>
+
+                      </p>
+                  </div>
+              </div>
+
+<div class="content" ng-controller="controller">
+    <div class="col-md-4 panel" ng-class="{true:'panel-danger', false:'panel-success'}[loo.occupied]" ng-repeat="loo in loos">
+        <div class="panel-heading">F:{{ loo.floor }} | B:{{ loo.bathroom }} | S:{{ loo.stall }}</div>
+        <div class="panel-body">
+            Occupancy Chance: {{ loo.occupyChance | number: 0 }}%
+            <div ng-repeat="tag in loo.tags">
+                {{ tag | capitalize }}
+            </div>
+        </div>
 </body>
