@@ -3,20 +3,22 @@ angular.module('app', [])
 .controller('controller', function($scope) {
   $scope.loos = [
     {
-      floor: '14th Floor',
-      bathroom: 'front', 
-      stall: 1, 
-      cleanliness: 1, 
-      occupy_chance: 20, 
-      tags: ['handicap', 'private']
+      "id":"3910360",
+      "floor":"1",
+      "bathroom":"2",
+      "stall":"2",
+      "occupied":false,
+      "occupyChance":19.84247250016779,
+      "tags":[""]
     },
     {
-      floor: '13th Floor',
-      bathroom: 'front', 
-      stall: 2, 
-      cleanliness: 0, 
-      occupy_chance: 80, 
-      tags: []
+      "id":"3910361",
+      "floor":"2",
+      "bathroom":"1",
+      "stall":"1",
+      "occupied":true,
+      "occupyChance":70.86311145219952,
+      "tags":["handicap","private"]
     }
   ];
 });
