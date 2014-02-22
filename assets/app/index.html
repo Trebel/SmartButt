@@ -22,16 +22,11 @@
         <li><a href="#">Pref</a></li>
       </ul>
     </div>
-    <h1>SmartButt</h1>
   </div>
 
   <div class="content" ng-controller="controller">
-    <table>
-      <tr ng-repeat="loo in loos">
-        <td>
-          <div>{{ loo.floor }}</div>
-        </td>
-      </tr>
-    </table>
+    <div class="col-md-4 panel" ng-class="{true:'panel-danger', false:'panel-success'}[loo.occupied]" ng-repeat="loo in loos">
+      <div class="panel-heading">F:{{ loo.floor }} | B:{{ loo.bathroom }} | S:{{ loo.stall }}</div>
+      <div class="panel-body">Occupancy Chance: {{ loo.occupyChance | number: 0 }}%</div>
   </div>
 </body>
