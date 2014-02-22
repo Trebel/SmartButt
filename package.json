@@ -16,7 +16,8 @@
   "dependencies": {
     "restify": "~2",
     "bunyan": "~0",
-    "bunyan-syslog": "~0"
+    "bunyan-syslog": "~0",
+    "m2x": "~0"
   },
   "devDependencies": {
     "grunt": "~0",
