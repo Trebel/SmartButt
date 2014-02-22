@@ -21,5 +21,6 @@
       "port": null
     }
   },
-  "m2xMasterKey": "a88396a6bcdba5898295bf715e4529b8"
+  "m2xMasterKey": "a88396a6bcdba5898295bf715e4529b8",
+  "derp": true
 }
