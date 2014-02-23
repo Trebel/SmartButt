@@ -1,6 +1,19 @@
 # SmartButt API
 
-A simple API implementation which uses sensor data stored in AT&T's m2x.
+A simple web app and REST API implementation which uses sensor data stored in AT&T's m2x.
+
+## Quick Start
+```bash
+git clone https://github.com/Trebel/SmartButt.git
+cd SmartButt
+npm install
+grunt server
+```
+
+```html
+http://localhost:5000/index.html
+http://localhost:5000/api/toilets
+```
 
 ## Usage
 Use `npm install` to install dependencies, and `npm install -g grunt-cli` to install grunt-cli globally.
