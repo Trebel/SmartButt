@@ -1,4 +1,4 @@
-# SmartButt API
+# SmartButt
 
 A simple web app and REST API implementation which uses sensor data stored in AT&T's m2x.
 
