@@ -1,75 +1,39 @@
 #include "mbed.h"
 #include "M2XStreamClient.h"
 #include "include_me.h"
+#include "MMA8451Q.h"
 
 using namespace mts;
 
 const char key[] = "a88396a6bcdba5898295bf715e4529b8";  // enter your m2x user account master key
 const char feed[] = "62b83d2c715f6ddcc38056a0f0023d0f"; // enter your blueprint feed id
-const char stream[] = "switchvoltage";   // Create a stream name
-
-// set to 1 for cellular shield board
-// set to 0 for wifi shield board
-#define CELL_SHIELD 0
+const char f1b1s1Stream[] = "f1b1s1";   // Create a stream name
 
 // ssid and phrase for wifi
 std::string ssid = "HackAThon";
 std::string phrase = "F0undry!";
 Wifi::SecurityType security_type = Wifi::WPA;
 
+//////////////////////////////////////////////////////////////////////
+// Include support for on-board green and red LEDs
+#define LED_ON  0
+#define LED_OFF 1
+DigitalOut greenLED(LED_GREEN);
+DigitalOut redLED(LED_RED);
+
+// Setup pin 20 (A5) for analog input
+AnalogIn ain(A5);
+
+
+
+/////////////////////////////////////////////////////////////////////
+// Prototype for LED flash routine
+void ledFlashTick(bool);
+
 int main()
 {
-#if CELL_SHIELD
-    MTSSerialFlowControl* serial = new MTSSerialFlowControl(PTD3, PTD2, PTA12, PTC8);
-    serial->baud(115200);
-    Transport::setTransport(Transport::CELLULAR);
-    Cellular* cell = Cellular::getInstance();
-    cell->init(serial, PTA4, PTC9); //DCD and DTR pins for KL46Z
-
-    int max_tries = 5;
-    int i;
-    std::string apn = "wap.cingular";
-
-    i = 0;
-    while (i++ < max_tries) {
-        if (cell->getRegistration() == Cellular::REGISTERED) {
-            printf("registered with tower\n\r");
-            break;
-        } else if (i >= max_tries) {
-            printf("failed to register with tower\n\r");
-        } else {
-            wait(3);
-        }
-    }
-
-    printf("signal strength: %d\n\r", cell->getSignalStrength());
-
-    i = 0;
-    printf("setting APN to %s\n\r", apn.c_str());
-    while (i++ < max_tries) {
-        if (cell->setApn(apn) == SUCCESS) {
-            printf("successfully set APN\n\r");
-            break;
-        } else if (i >= max_tries) {
-            printf("failed to set APN\n\r");
-        } else {
-            wait(1);
-        }
-    }
-
-    i = 0;
-    printf("bringing up PPP link\n\r");
-    while (i++ < max_tries) {
-        if (cell->connect()) {
-            printf("PPP link is up\n\r");
-            break;
-        } else if (i >= max_tries) {
-            printf("failed to bring PPP link up\n\r");
-        } else {
-            wait(1);
-        }
-    }
-#else
+    
+    // Connect to WiFi
     for (int i = 6; i >= 0; i = i - 2) {
         wait(2);
         printf("Waiting %d seconds...\n\r", i);
@@ -85,18 +49,38 @@ int main()
     printf("Is Connected: %s\n\r", wifi->isConnected() ? "True" : "False");
     printf("Connect: %s\n\r", wifi->connect() ? "Success" : "Failure");
     printf("Is Connected: %s\n\r", wifi->isConnected() ? "True" : "False");
-#endif
 
-    /* send some data */
+    // Initialize LEDs
+    greenLED = LED_OFF;
+    redLED = LED_OFF;
+
+    // Send some data 
     Client client;
     M2XStreamClient m2xClient(&client, key);
     int ret;
-    int num;
+    int val;
+
     while (true) {
-        num = rand();
-        printf("sending %d\r\n", num);
-        ret = m2xClient.send(feed, stream, num);
-        printf("send() returned %d\r\n", ret);
+        if(ain >= .1) {
+            val = 1;
+        } else {
+            val = 0;
+        }
+        ledFlashTick(val);
+        
+        printf("ain %f\r\n", ain);
+        printf("sending %d\r\n", val);
+        ret = m2xClient.send(feed, f1b1s1Stream, val);
+        printf("send() returned %d\r\n", ret); 
+        
+        
+        
         wait(5);
     }
+}
+
+void ledFlashTick(bool vacant)
+{
+    greenLED = vacant;
+    redLED = !vacant;
 }
