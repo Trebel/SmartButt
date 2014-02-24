@@ -5,8 +5,8 @@
 
 using namespace mts;
 
-const char key[] = "a88396a6bcdba5898295bf715e4529b8";  // enter your m2x user account master key
-const char feed[] = "62b83d2c715f6ddcc38056a0f0023d0f"; // enter your blueprint feed id
+const char key[] = "a88396a6bcdba5898295bf715e4529b8";  // m2x user account master key (given key is inactive)
+const char feed[] = "62b83d2c715f6ddcc38056a0f0023d0f"; // blueprint feed id (given key is inactive)
 const char f1b1s1Stream[] = "f1b1s1";   // Create a stream name
 
 // ssid and phrase for wifi
